@@ -1,0 +1,7 @@
+function multiTable(n) {
+let a = ``;
+for (let i = 1; i<10; i++) {
+   a = a + `${i} * ${n} = ${i*n}\n` 
+}
+  return a + `10 * ${n} = ${10*n}`;
+}
