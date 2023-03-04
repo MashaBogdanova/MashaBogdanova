@@ -1,5 +1,6 @@
 let greet = function (name) {
-    let newStr = name.toLowerCase().split("")
-    newStr[0] = newStr[0].toUpperCase()
-    return `Hello ${newStr.join("")}!`
+
+    return `Hello ${name[0].toUpperCase()}${name.slice(1).toLowerCase()}!`
 };
+
+console.log(greet("maRusik"))
