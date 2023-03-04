@@ -1,0 +1,5 @@
+let greet = function (name) {
+    let newStr = name.toLowerCase().split("")
+    newStr[0] = newStr[0].toUpperCase()
+    return `Hello ${newStr.join("")}!`
+};
