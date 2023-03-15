@@ -1,0 +1,8 @@
+function getParticipants(handshakes){
+  for (let count = 0; count <= 1000; count++){
+    let currentHandshakes = count * (count - 1) / 2;
+    if (currentHandshakes >= handshakes) {
+      return count;
+    }
+  }
+}
