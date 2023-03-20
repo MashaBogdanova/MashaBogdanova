@@ -1,0 +1,8 @@
+function accum(s) {
+    return s
+        .toLowerCase()
+        .split('')
+        .map((symbol, index) => `${symbol.toUpperCase()}${symbol.repeat(index)}`)
+        .join("-")
+
+}
