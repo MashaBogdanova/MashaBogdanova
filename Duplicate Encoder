@@ -1,0 +1,11 @@
+function duplicateEncode(word) {
+    let arr = word.toLowerCase().split('')
+    let final = []
+
+    arr.map(symbol => {
+        let newArr = arr.filter(value => value === symbol)
+        newArr.length === 1 ? final.push("(") : final.push(")")
+    })
+    return final.join("")
+}
+console.log(duplicateEncode("recede"))
