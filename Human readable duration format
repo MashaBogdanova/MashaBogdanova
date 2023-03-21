@@ -1,0 +1,173 @@
+function formatDuration(seconds) {
+    if (seconds === 0) {
+        return `now`
+    } else if (0 < seconds && seconds < 60) {
+        return seconds === 1 ? `${seconds} second` : `${seconds} seconds`
+
+    } else if (60 <= seconds && seconds < 3600) {
+        let final = ``
+
+        if (Math.trunc(seconds / 60) === 1) {
+            final = `1 minute`
+        } else {
+            final = `${Math.trunc(seconds / 60)} minutes`
+        }
+
+        if (seconds % 60 !== 0) {
+            if (seconds % 60 === 1) {
+                final += ` and 1 second`
+            } else {
+                final += ` and ${seconds % 60} seconds`
+            }
+        }
+        return final
+
+    } else if (3600 <= seconds && seconds < 86400) {
+        let final = ``
+        if (Math.trunc(seconds / 3600) === 1) {
+            final = `1 hour`
+        } else {
+            final = `${Math.trunc(seconds / 3600)} hours`
+        }
+
+        if (Math.trunc(seconds % 3600 / 60) !== 0) {
+            if (Math.trunc(seconds % 3600 / 60) === 1) {
+                if (seconds % 3600 % 60 === 0) {
+                    final += ` and 1 minute`
+                } else {
+                    final += `, 1 minute`
+                }
+            } else {
+                if (seconds % 3600 % 60 === 0) {
+                    final += ` and ${Math.trunc(seconds % 3600 / 60)} minutes`
+                } else {
+                    final += `, ${Math.trunc(seconds % 3600 / 60)} minutes`
+                }
+            }
+        }
+
+        if (seconds % 3600 % 60 !== 0) {
+            if (seconds % 3600 % 60 === 1) {
+                final += ` and 1 second`
+            } else {
+                final += ` and ${seconds % 3600 % 60} seconds`
+            }
+        }
+
+        return final
+
+    } else if (86400 <= seconds && seconds < 31536000) {
+        let final = ``
+
+        if (Math.trunc(seconds / 86400) === 1) {
+            final = `1 day`
+        } else {
+            final = `${Math.trunc(seconds / 86400)} days`
+        }
+
+        if (Math.trunc(seconds % 86400 / 3600) !== 0) {
+            if (Math.trunc(seconds % 86400 / 3600) === 1) {
+                if (seconds % 86400 % 3600 === 0) {
+                    final += ` and 1 hour`
+                } else {
+                    final += `, 1 hour`
+                }
+            } else {
+                if (seconds % 86400 % 3600 === 0) {
+                    final += ` and ${Math.trunc(seconds % 86400 / 3600)} hours`
+                } else {
+                    final += `, ${Math.trunc(seconds % 86400 / 3600)} hours`
+                }
+            }
+        }
+        if (Math.trunc(seconds % 86400 % 3600 / 60) !== 0) {
+            if (Math.trunc(seconds % 86400 % 3600 / 60) === 1) {
+                if (seconds % 86400 % 3600 % 60 === 0) {
+                    final += ` and 1 minute`
+                } else {
+                    final += `, 1 minute`
+                }
+            } else {
+                if (seconds % 86400 % 3600 % 60 === 0) {
+                    final += ` and ${Math.trunc(seconds % 86400 % 3600 / 60)} minutes`
+                } else {
+                    final += `, ${Math.trunc(seconds % 86400 % 3600 / 60)} minutes`
+                }
+            }
+        }
+
+        if (seconds % 86400 % 3600 % 60 !== 0) {
+            if (seconds % 86400 % 3600 % 60 === 1) {
+                final += ` and 1 second`
+            } else {
+                final += ` and ${seconds % 86400 % 3600 % 60} seconds`
+            }
+        }
+
+        return final
+    } else {
+        let final = ``
+        if (Math.trunc(seconds / 31536000) === 1) {
+            final = `1 year`
+        } else {
+            final = `${Math.trunc(seconds / 31536000)} years`
+        }
+
+        if (Math.trunc(seconds % 31536000 / 86400) !== 0) {
+            if (Math.trunc(seconds % 31536000 / 86400) === 1) {
+                if (seconds % 31536000 % 86400 === 0) {
+                    final += ` and 1 day`
+                } else {
+                    final += `, 1 day`
+                }
+            } else {
+                if (seconds % 31536000 % 86400 === 0) {
+                    final += ` and ${Math.trunc(seconds % 31536000 / 86400)} days`
+                } else {
+                    final += `, ${Math.trunc(seconds % 31536000 / 86400)} days`
+                }
+            }
+        }
+
+        if (Math.trunc(seconds % 31536000 % 86400 / 3600) !== 0) {
+            if (Math.trunc(seconds % 31536000 % 86400 / 3600) === 1) {
+                if (seconds % 31536000 % 86400 / 3600 === 0) {
+                    final += ` and 1 hour`
+                } else {
+                    final += `, 1 hour`
+                }
+            } else {
+                if (seconds % 31536000 % 86400 / 3600 === 0) {
+                    final += ` and ${Math.trunc(seconds % 31536000 % 86400 / 3600)} hours`
+                } else {
+                    final += `, ${Math.trunc(seconds % 31536000 % 86400 / 3600)} hours`
+                }
+            }
+        }
+
+        if (Math.trunc(seconds % 31536000 % 86400 % 3600 / 60) !== 0) {
+            if (Math.trunc(seconds % 31536000 % 86400 % 3600 / 60) === 1) {
+                if (seconds % 31536000 % 86400 % 3600 % 60 === 0) {
+                    final += ` and 1 minute`
+                } else {
+                    final += `, 1 minute`
+                }
+            } else {
+                if (seconds % 31536000 % 86400 % 3600 % 60 === 0) {
+                    final += ` and ${Math.trunc(seconds % 31536000 % 86400 % 3600 / 60)} minutes`
+                } else {
+                    final += `, ${Math.trunc(seconds % 31536000 % 86400 % 3600 / 60)} minutes`
+                }
+            }
+        }
+
+        if (seconds % 31536000 % 86400 % 3600 % 60 !== 0) {
+            if (seconds % 31536000 % 86400 % 3600 % 60 === 1) {
+                final += ` and 1 second`
+            } else {
+                final += ` and ${seconds % 31536000 % 86400 % 3600 % 60} seconds`
+            }
+        }
+        return final
+    }
+}
